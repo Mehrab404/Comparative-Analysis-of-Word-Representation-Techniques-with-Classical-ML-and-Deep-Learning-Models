@@ -88,41 +88,9 @@ experiment:
 - Generate representations: BoW/TF-IDF via scikit-learn, GloVe-initialized embedding matrices, and Skip-gram embeddings trained with Gensim on the corpus.
 - Train and evaluate each model–embedding combination, reporting accuracy, macro F1, weighted F1, confusion matrices, and classification reports.
 
-## Training Skip-gram embeddings (example)
-The study trains Skip-gram embeddings in-domain using Gensim to capture task-specific semantics with 300-dimensional vectors.
-
-```
-from gensim.models import Word2Vec
-# tokens: list[list[str]] from the preprocessed corpus
-w2v = Word2Vec(
-    sentences=tokens,
-    vector_size=300,  # per paper
-    sg=1,             # Skip-gram
-    workers=4,
-    window=5,
-    min_count=2,
-    epochs=5
-)
-# Export embedding matrix aligned to tokenizer word_index
-```
-
 ## Running models (examples)
 - Classical: Train Logistic Regression, Naive Bayes, and Random Forest on BoW/TF-IDF features and evaluate on the test set.
 - Deep: Build Keras models for DNN/RNN/GRU/LSTM (and bidirectional variants), initialize embeddings (GloVe or Skip-gram), and train with early stopping.
-
-DNN sketch:
-```
-import tensorflow as tf
-from tensorflow.keras import layers, models
-model = models.Sequential([
-  layers.Embedding(input_dim=vocab_size, output_dim=emb_dim, input_length=max_len, weights=[embedding_matrix], trainable=True),
-  layers.GlobalAveragePooling1D(),
-  layers.Dense(256, activation='relu'),
-  layers.Dropout(0.5),
-  layers.Dense(num_classes, activation='softmax')
-])
-model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
-```
 
 ## Evaluation
 - Report Accuracy, Macro F1, and Weighted F1, alongside confusion matrices and classification reports for thorough multiclass assessment.
@@ -138,7 +106,7 @@ model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accur
 - Explore data augmentation, targeted hyperparameter tuning (embedding dimensions, hidden units, dropout), and model ensembling to push results further.
 
 ## Project structure (suggested)
-This structure supports clarity and reproducibility; adapt paths and names to the existing codebase if it differs.
+This structure supports clarity and reproducibility; 
 
 ```
 .
