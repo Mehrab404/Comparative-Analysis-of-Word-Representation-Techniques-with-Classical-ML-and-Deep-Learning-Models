@@ -10,8 +10,9 @@ Representations: BoW, TF-IDF, GloVe (100d), and task-trained Skip-gram (300d); M
 The study demonstrates consistent gains from neural embeddings over sparse features, with Skip-gram + DNN outperforming all baselines and recurrent variants on accuracy and F1 metrics.
 
 ## Files
-- Comparative Analysis of Word Representation Techniques with Classical ML and Deep Learning Models for Multiclass Text Classification.pdf — full report with methods, experiments, figures, and tables.
-- Model Codes.ipynb — end-to-end notebook for preprocessing, feature extraction, model training, and evaluation.
+- Comparative Analysis of Word Representation Techniques with Classical ML and Deep Learning Models for Multiclass Text Classification.pdf - full report with methods, experiments, figures, and tables.
+- Model_Codes.ipynb - end-to-end notebook for preprocessing, feature extraction, model training, and evaluation.
+- Project_Plots.zip - contains all the performance metrics plots of the models
 
 ## Key findings
 - Skip-gram + DNN: Accuracy 0.679, Macro-F1 0.672, Weighted-F1 0.672 (best overall).
